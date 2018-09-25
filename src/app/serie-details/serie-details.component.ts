@@ -4,46 +4,42 @@ import { MovieDbService} from '../movie-db.service';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-film-details',
-  templateUrl: './film-details.component.html',
-  styleUrls: ['./film-details.component.css']
+  selector: 'app-serie-details',
+  templateUrl: './serie-details.component.html',
+  styleUrls: ['./serie-details.component.css']
 })
+export class SerieDetailsComponent implements OnInit {
 
-export class FilmDetailsComponent implements OnInit {
-
-
-
-  public film: any = {};
+  public serie: any = {};
 
 
-  constructor(private route: ActivatedRoute, private filmService: MovieDbService) {
+  constructor(private route: ActivatedRoute, private serieService: MovieDbService) {
 
   }
 
   ngOnInit() {
-    this.getFilm();
+    this.getSerie();
 
 
   }
 
 
-  getFilm(): void {
+  getSerie(): void {
     console.log(this.route);
     const id = +this.route.snapshot.params.id;
     console.log(id);
-    this.filmService.getFilm(id)
-      .subscribe(film => {
-        this.film = film;
-        console.log('Dentro de la petición ->' + JSON.stringify(this.film));
+    this.serieService.getSerie(id)
+      .subscribe(serie => {
+        this.serie = serie;
+        console.log('Dentro de la petición ->' + JSON.stringify(this.serie));
       });
   }
 }
 export class NgbdRatingConfig {
   constructor(config: NgbRatingConfig) {
     config.max = 10;
-}
+  }
 }
 export class NgbdCollapseBasic {
   public isCollapsed = false;
 }
-

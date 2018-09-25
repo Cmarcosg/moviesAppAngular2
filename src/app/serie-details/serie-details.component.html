@@ -1,18 +1,17 @@
-
 <div class="container">
 
   <div class="row ">
     <div class="col-12 text-center">
-      <h1>{{film.title}}</h1>
+      <h1>{{serie.name}}</h1>
     </div>
 
   </div>
   <div class="row">
     <div class="col-4">
-      <img src="https://image.tmdb.org/t/p/w300{{film.poster_path}}">
+      <img src="https://image.tmdb.org/t/p/w300{{serie.poster_path}}">
     </div>
     <div class="col-8">
-      <h4>Título original:</h4>{{film.original_title}}
+      <h4>Título original:</h4>{{serie.original_name}}
       <p>
           <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
                   [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
@@ -22,15 +21,18 @@
         <div id="collapseExample" [ngbCollapse]="!isCollapsed">
           <div class="card">
             <div class="card-body">
-              {{film.overview}}
+                {{serie.overview}}
             </div>
           </div>
         </div>
-        <h4>valoracion:{{film.vote_average}}</h4>
+        <h4>valoracion:{{serie.vote_average}}</h4>
         <ng-template #t let-fill="fill">
           <span class="star" [class.full]="fill === 100">
             <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
           </span>
         </ng-template>
-        <ngb-rating [(rate)]="film.vote_average" [starTemplate]="t" [readonly]="true" max="10"></ngb-rating>
-      <button class="btn btn-sm btn-outline-{{readonly ? 'danger' : 'success'}}" (click)="readonly = !readonly">{{ readonly ? "vista" : "para ver"}}</button>
+        <ngb-rating [(rate)]="serie.vote_average" [starTemplate]="t" [readonly]="true" max="10"></ngb-rating>
+     <div> <button class="btn btn-sm btn-outline-{{readonly ? 'danger' : 'success'}}" (click)="readonly = !readonly">{{ readonly ? "vista" : "para ver"}}</button></div>
+    </div>
+  </div>
+</div>

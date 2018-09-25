@@ -1,3 +1,9 @@
+.btn-outline-primary {
+    color: red;
+    background-color: transparent;
+    background-image: none;
+    border-color: red;
+}
 .star {
     position: relative;
     display: inline-block;
@@ -13,9 +19,3 @@
     overflow: hidden;
     color: red;
   }
-  .btn-outline-primary {
-    color: red;
-    background-color: transparent;
-    background-image: none;
-    border-color: red;
-}
